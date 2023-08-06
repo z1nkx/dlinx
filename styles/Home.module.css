@@ -330,3 +330,23 @@
 }
 
 /* ... Existing styles ... */
+/* Home.module.css */
+
+/* ... existing styles ... */
+
+.signIn {
+  font-size: 24px;
+  padding: 12px 24px;
+  background-color: #2979ff;
+  color: #9463f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.signIn:hover {
+  background-color: #79b5f5;
+}
+
+/* ... other styles ... */

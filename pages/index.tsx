@@ -176,14 +176,25 @@ const Home: NextPage = () => {
           &#128274; Securing the digital world ethically. Let&apos;s connect!{" "}
         </p>
 
-        <div className={styles.connect}>
-          <ConnectWallet
-            dropdownPosition={{
-              side: "bottom",
-              align: "center",
-            }}
-          />
-        </div>
+        <div className={styles.signIn}>
+  {/* Replace the ConnectWallet component with a button labeled "Sign In" */}
+  <button
+    style={{
+      fontSize: "24px",
+      padding: "1px 10px",
+      backgroundColor: "#2979ff",
+      color: "#ffffff",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      transition: "background-color 0.2s",
+    }}
+    onClick={() => console.log("Sign In button clicked")}
+  >
+    Sign In
+  </button>
+</div>
+
 
         <div className={styles.viewCount}>
           <i className="fas fa-eye"></i> {/* Font Awesome eye icon */}
