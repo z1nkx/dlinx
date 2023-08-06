@@ -1,5 +1,5 @@
 // pages/index.tsx
-import { ConnectWallet, ThirdwebNftMedia, useContract, useNFTs } from "@thirdweb-dev/react";
+import { ConnectWallet, ThirdwebNftMedia, useContract, useContractMetadata, useNFTs } from "@thirdweb-dev/react";
 import Image from "next/image";
 import { NextPage } from "next";
 import styles from "../styles/Home.module.css";
@@ -59,33 +59,59 @@ const socialMediaData = [
   // Add more social media platforms as needed
 ];
 
-
 const linkButtons = [
   {
     label: "Opensea",
     link: "https://example.com/button1",
   },
-  
- 
+  {
+    label: "Opensea",
+    link: "https://example.com/button2",
+  },
+  {
+    label: "Opensea",
+    link: "https://example.com/button3",
+  },
+  {
+    label: "Opensea",
+    link: "https://example.com/button4",
+  },
   // Add more buttons as needed
 ];
 
 const Home: NextPage = () => {
   const { contract } = useContract('0x185E6dA7F560A08d12C640D795C8ea5B3F658Df7', 'edition-drop');
   const { data: nfts, isLoading: loadingNfts } = useNFTs(contract);
+  const { data: contractMetadata, isLoading: loadingContractMetadata } = useContractMetadata(contract);
 
   return (
     <main className={styles.main}>
+      {/* Display the profile image of the contract */}
+      {!loadingContractMetadata && contractMetadata && (
+        <div className={styles.contractImage}>
+          <img
+            src={contractMetadata?.image}
+            alt="Profile Image of the Contract"
+            className={styles.mainProfileImage} // Add the mainProfileImage class here
+          />
+          <div className={styles.contractInfo}>
+            {/* Display additional contract info, e.g., contract name, description */}
+            <h2></h2>
+            <p></p>
+          </div>
+        </div>
+      )}
+
       <div className={styles.coverPhoto}>
         {/* Add the cover photo image here */}
         <Image
-          src="/images/z1.png"
+          src="/images/shop.jpg"
           alt="Cover Photo"
           layout="fill"
           objectFit="cover"
           objectPosition="center"
           loading="lazy"
-          style={{ opacity: 0.3 }} // Adjust the opacity value (0.0 to 1.0)
+          style={{ opacity: 0.4 }} // Adjust the opacity value (0.0 to 1.0)
         />
       </div>
 
@@ -120,13 +146,12 @@ const Home: NextPage = () => {
         </div>
 
         <p className={styles.description}>
-  &#128293; Blockchain Developer / NFT Enthusiast / Ethical Hacker &#128274;
-  &#128640; Passionate about blockchain, NFTs, and cybersecurity. &#128161; Turning
-  ideas into smart contracts. &#127912; Exploring the digital art revolution.{" "}
-  &#128274; Securing the digital world ethically. Let&apos;s connect!{" "}
-</p>
-
-
+          {/* Existing description */}
+          &#128293; Blockchain Developer / NFT Enthusiast / Ethical Hacker &#128274;
+          &#128640; Passionate about blockchain, NFTs, and cybersecurity. &#128161; Turning
+          ideas into smart contracts. &#127912; Exploring the digital art revolution.{" "}
+          &#128274; Securing the digital world ethically. Let&apos;s connect!{" "}
+        </p>
 
         <div className={styles.connect}>
           <ConnectWallet
@@ -152,6 +177,11 @@ const Home: NextPage = () => {
           </a>
         ))}
       </div>
+
+      {/* Contract Title */}
+      <h2 className={styles.contractTitle}>
+        {contractMetadata?.name} {/* Display the contract title above the NFT grid */}
+      </h2>
 
       <div className={styles.grid}>
         {/* NFT Grid */}
