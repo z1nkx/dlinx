@@ -1,4 +1,5 @@
 // pages/index.tsx
+import { useEffect, useState } from 'react';
 import { ConnectWallet, ThirdwebNftMedia, useContract, useContractMetadata, useNFTs } from "@thirdweb-dev/react";
 import Image from "next/image";
 import { NextPage } from "next";
@@ -21,6 +22,7 @@ const socialMediaData = [
     link: "https://github.com/your-github-username",
     iconClass: "fab fa-github",
   },
+  // ... existing platforms ...
   {
     name: "Instagram",
     link: "https://www.instagram.com/your-instagram-username/",
@@ -56,8 +58,20 @@ const socialMediaData = [
     link: "https://www.reddit.com/user/your-reddit-username",
     iconClass: "fab fa-reddit",
   },
-  // Add more social media platforms as needed
+  // TikTok
+  {
+    name: "TikTok",
+    link: "https://www.tiktok.com/your-tiktok-profile/",
+    iconClass: "fab fa-tiktok",
+  },
+  // Add one more platform
+  {
+    name: "Snapchat",
+    link: "https://www.snapchat.com/add/your-snapchat-username",
+    iconClass: "fab fa-snapchat",
+  },
 ];
+
 
 const linkButtons = [
   {
@@ -79,10 +93,19 @@ const linkButtons = [
   // Add more buttons as needed
 ];
 
+
+
 const Home: NextPage = () => {
   const { contract } = useContract('0x185E6dA7F560A08d12C640D795C8ea5B3F658Df7', 'edition-drop');
   const { data: nfts, isLoading: loadingNfts } = useNFTs(contract);
   const { data: contractMetadata, isLoading: loadingContractMetadata } = useContractMetadata(contract);
+
+  const [viewCount, setViewCount] = useState(0);
+
+  useEffect(() => {
+    // Increment the view count whenever the component mounts
+    setViewCount((prevCount) => prevCount + 1);
+  }, []);
 
   return (
     <main className={styles.main}>
@@ -161,7 +184,14 @@ const Home: NextPage = () => {
             }}
           />
         </div>
+
+        <div className={styles.viewCount}>
+          <i className="fas fa-eye"></i> {/* Font Awesome eye icon */}
+          <span>{viewCount}</span>
+        </div>
+
       </div>
+
 
       {/* Link Buttons */}
       <div className={styles.linkButtons}>

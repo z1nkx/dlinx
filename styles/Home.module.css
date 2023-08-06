@@ -109,6 +109,22 @@
 .main {
   position: relative;
 }
+.viewCount {
+  position: absolute;
+  top: 20px; /* Adjust the top distance as needed */
+  right: 20px; /* Adjust the right distance as needed */
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.viewCount i {
+  margin-right: 5px;
+}
 
 .coverPhoto {
   position: relative; /* Set the position to relative to establish a new stacking context */
@@ -150,6 +166,7 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
+  margin-right: 20px; /* Add margin-right to move it right */
 }
 
 .socialHandles a {
@@ -166,6 +183,7 @@
 .socialHandles a:hover {
   color: #79b5f5;
 }
+
 
 /* ... Existing styles ... */
 
