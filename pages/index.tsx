@@ -22,6 +22,7 @@ const socialMediaData = [
     link: "https://github.com/your-github-username",
     iconClass: "fab fa-github",
   },
+  // ... existing platforms ...
   {
     name: "Instagram",
     link: "https://www.instagram.com/your-instagram-username/",
@@ -57,8 +58,20 @@ const socialMediaData = [
     link: "https://www.reddit.com/user/your-reddit-username",
     iconClass: "fab fa-reddit",
   },
-  // Add more social media platforms as needed
+  // TikTok
+  {
+    name: "TikTok",
+    link: "https://www.tiktok.com/your-tiktok-profile/",
+    iconClass: "fab fa-tiktok",
+  },
+  // Add one more platform
+  {
+    name: "Snapchat",
+    link: "https://www.snapchat.com/add/your-snapchat-username",
+    iconClass: "fab fa-snapchat",
+  },
 ];
+
 
 const linkButtons = [
   {
@@ -94,7 +107,7 @@ const Home: NextPage = () => {
     setViewCount((prevCount) => prevCount + 1);
   }, []);
 
-return (
+  return (
     <main className={styles.main}>
       {/* Display the profile image of the contract */}
       {!loadingContractMetadata && contractMetadata && (
