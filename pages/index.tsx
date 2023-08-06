@@ -101,11 +101,7 @@ const Home: NextPage = () => {
   const { data: contractMetadata, isLoading: loadingContractMetadata } = useContractMetadata(contract);
 
   const [viewCount, setViewCount] = useState(0);
-
-  useEffect(() => {
-    // Increment the view count whenever the component mounts
-    setViewCount((prevCount) => prevCount + 1);
-  }, []);
+  
 
   return (
     <main className={styles.main}>
@@ -184,14 +180,7 @@ const Home: NextPage = () => {
             }}
           />
         </div>
-
-        <div className={styles.viewCount}>
-          <i className="fas fa-eye"></i> {/* Font Awesome eye icon */}
-          <span>{viewCount}</span>
-        </div>
-
       </div>
-
 
       {/* Link Buttons */}
       <div className={styles.linkButtons}>
@@ -216,18 +205,19 @@ const Home: NextPage = () => {
       <div className={styles.grid}>
         {/* NFT Grid */}
         {!loadingNfts && nfts && (
-          <>
+          <div className={styles.nftColumn}> {/* Add a container for the NFT cards */}
             {nfts.map((nft) => (
               <Link key={nft.metadata.id} href={`/artwork/${nft.metadata.id}`}>
                 <div className={styles.artCard}>
                   <ThirdwebNftMedia metadata={nft.metadata} />
                   <div className={styles.cardContent}>
                     <h3>{nft.metadata.name}</h3>
+                    <p>Price:$ {} 100</p> {/* Display the price here */}
                   </div>
                 </div>
               </Link>
             ))}
-          </>
+          </div>
         )}
       </div>
     </main>
