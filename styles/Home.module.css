@@ -184,7 +184,7 @@
 /* Add this style to customize the link buttons */
 .linkButtons a {
   display: inline-block;
-  padding: 15px 150px; /* Adjust the padding to change the button size */
+  padding: 15px 400px; /* Adjust the padding to change the button size */
   border: 2px solid #ffffff; /* Add a border with a specific color */
   border-radius: 30px;
   color: #fefeff; /* Set the button text color */

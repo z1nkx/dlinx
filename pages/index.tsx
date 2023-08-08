@@ -75,20 +75,20 @@ const socialMediaData = [
 
 const linkButtons = [
   {
-    label: "Opensea",
+    label: "Print on Demand",
     link: "https://example.com/button1",
   },
   {
-    label: "Opensea",
+    label: "Tools",
     link: "https://example.com/button2",
   },
   {
-    label: "Opensea",
-    link: "https://example.com/button3",
+    label: "Physical/NFT",
+    link: "https://z1store.eth.limo/",
   },
   {
-    label: "Opensea",
-    link: "https://example.com/button4",
+    label: "Secure Download",
+    link: "https://app.darkblock.io/",
   },
   // Add more buttons as needed
 ];
@@ -137,7 +137,7 @@ const Home: NextPage = () => {
       <div className={styles.overlayContent}>
         <div className={styles.header}>
           <h1 className={styles.title}>
-            DLINK🔗{" "}
+            DL1NK🔗{" "}
             <span className={styles.gradientText0}>
               <a
                 href="https://thirdweb.com/"
