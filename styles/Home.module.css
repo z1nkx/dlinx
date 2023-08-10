@@ -22,7 +22,7 @@
 
 .title {
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
 }
 
@@ -125,7 +125,7 @@
 
 .overlayContent {
   position: absolute;
-  top: 17%;
+  top: 25%;
   left: 0;
   width: 100%;
   transform: translateY(-50%);
@@ -184,7 +184,7 @@
 /* Add this style to customize the link buttons */
 .linkButtons a {
   display: inline-block;
-  padding: 15px 400px; /* Adjust the padding to change the button size */
+  padding: 15px 100px; /* Adjust the padding to change the button size */
   border: 2px solid #ffffff; /* Add a border with a specific color */
   border-radius: 30px;
   color: #fefeff; /* Set the button text color */
